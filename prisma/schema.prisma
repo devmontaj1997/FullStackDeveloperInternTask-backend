@@ -1,0 +1,35 @@
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Exercise {
+  id              String   @id @default(auto()) @map("_id") @db.ObjectId
+  exercise           String?
+  set            String?
+  reps           String?
+  holdTime           String?
+  side         String?
+  dayOfWeek        String[]
+  dailyFrequency    String?    
+  therapistNotes String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+model saveExercise {
+  id              String   @id @default(auto()) @map("_id") @db.ObjectId
+  exercise           String?
+  set            String?
+  reps           String?
+  holdTime           String?
+  side         String?
+  dayOfWeek        String[]
+  dailyFrequency    String?    
+  therapistNotes String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
